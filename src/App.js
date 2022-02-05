@@ -4,6 +4,7 @@ import "./App.css";
 function App({ tes }) {
   return (
     <div className="App">
+      {console.log(process.env)}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
