@@ -9,7 +9,7 @@ import Label from "./label";
 import ModalDetail from "./Modal/modal";
 import SelectInput from "./select";
 //  show all todo list from api component
-const ListTodo = ({ list }) => {
+const ListTodo = ({ list, deleteBtn }) => {
   // state for edit the data
   const [formData, setFormData] = useState({
     title: "",
@@ -67,9 +67,33 @@ const ListTodo = ({ list }) => {
       popup: false,
     });
   };
+  // delete submit list todo
+  const DeleteList = (id) => {
+    //   filter the id of list
+    const deleteTodo = detail.data.filter((edit, index) => {
+      return edit.id !== id;
+    });
+    // set State from zero to un popup the modal
+    // dispatch the redux to update data
+    dispatch(
+      setTodo({
+        ...detail,
+        data: deleteTodo,
+      })
+    );
+    console.log(deleteTodo);
+    setFormData({
+      title: "",
+      id: "",
+      status: "",
+      desc: "",
+      popup: false,
+    });
+  };
   return (
     <div>
-      {console.log("editData", formData)}
+      {console.log("detail", detail)}
+      {console.log("Form", formData)}
       {list
         ? list.map((todo, index) => {
             return (
@@ -162,15 +186,17 @@ const ListTodo = ({ list }) => {
               }
             />
           </div>
-          <div className="flex-module">
-            <div className="mt-20px">
-              <ButtonComponent
-                onClick={() => EditFormData()}
-                classButton={"button-tab-active"}
-              >
-                Update Task
-              </ButtonComponent>
-            </div>
+          <div className="flex-module content-center">
+            {deleteBtn && (
+              <div className="mt-20px mr-20px">
+                <ButtonComponent
+                  onClick={() => DeleteList(formData.id)}
+                  classButton={"button-tab-delete"}
+                >
+                  Delete Task
+                </ButtonComponent>
+              </div>
+            )}
             <div className="mt-20px">
               <ButtonComponent
                 onClick={() => EditFormData()}

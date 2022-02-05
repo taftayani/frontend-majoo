@@ -78,6 +78,15 @@ code {
   margin-left: auto;
   border:none
 }
+.button-tab-delete{
+  background-color: #F36464;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border:none;
+  color: white;
+  cursor: pointer;
+  border:none
+}
   /* button css  */
   /* Header, and text landing page  */
 .Header-page{
@@ -161,7 +170,7 @@ code {
     padding-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
-    top: 30%;
+    top: 20%;
     border-radius: 20px;
     z-index: 10;
   }

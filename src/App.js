@@ -88,8 +88,12 @@ const App = () => {
       {/* tab choosing done and undone  */}
 
       {/* content todo list  */}
-      {btnTab === "done" ? <ListTodo list={DoneList} /> : ""}
-      {btnTab === "undone" ? <ListTodo list={UndoneList} /> : ""}
+      {btnTab === "done" ? <ListTodo list={DoneList} deleteBtn={false} /> : ""}
+      {btnTab === "undone" ? (
+        <ListTodo list={UndoneList} deleteBtn={true} />
+      ) : (
+        ""
+      )}
       {/* content todo list  */}
     </div>
   );
