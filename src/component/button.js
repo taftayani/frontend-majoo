@@ -3,9 +3,9 @@ const ButtonComponent = ({ children, classButton, onClick }) => {
   return (
     //   this component for button need
     <div>
-      <label onClick={onClick} className={classButton}>
+      <button type="button" onClick={onClick} className={classButton}>
         {children}
-      </label>
+      </button>
     </div>
   );
 };

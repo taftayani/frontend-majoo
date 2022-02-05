@@ -9,7 +9,7 @@ import { setTodo } from "./redux/actionExecute";
 import { useSelector } from "react-redux";
 import ListTodo from "./component/listTodo";
 
-const App = ({ tes }) => {
+const App = () => {
   // state management
   const [btnTab, setBtnTab] = useState("done");
   // dispatch for execute the redux
@@ -20,6 +20,7 @@ const App = ({ tes }) => {
   const ApiGetTodo = async () => {
     try {
       const response = await axios.get(process.env.REACT_APP_URL_API);
+      console.log(response);
       dispatch(setTodo(response));
     } catch (e) {
       console.log(e);
@@ -27,24 +28,34 @@ const App = ({ tes }) => {
   };
   // filter list api
   const DoneList = detail
-    ? detail.data.filter((list) => {
-        return list.status === 1;
-      })
+    ? detail.data
+        .filter((list) => {
+          return list.status === 1;
+        })
+        .sort((a, b) => {
+          var dateFirst = new Date(a.createdAt);
+          var dateSecond = new Date(b.createdAt);
+          return dateFirst - dateSecond;
+        })
     : "";
   const UndoneList = detail
-    ? detail.data.filter((list) => {
-        return list.status === 0;
-      })
+    ? detail.data
+        .filter((list) => {
+          return list.status === 0;
+        })
+        .sort((a, b) => {
+          var dateFirst = new Date(a.createdAt);
+          var dateSecond = new Date(b.createdAt);
+          return dateSecond - dateFirst;
+        })
     : "";
-  // button to showing popup detail list
-  const submit = async () => {
-    const response = await axios.get(process.env.REACT_APP_URL_API);
-    dispatch(setTodo(response));
-  };
   // useEffect to render the redux api
   useEffect(() => {
-    ApiGetTodo();
-  });
+    if (!detail) {
+      ApiGetTodo();
+    }
+    console.log("detail", detail);
+  }, detail);
   return (
     <div className="App">
       <Label classText={"Header-page"}>My Task</Label>
@@ -72,12 +83,13 @@ const App = ({ tes }) => {
         >
           Done task
         </ButtonComponent>
+        {/* modal wrrping detail  */}
       </div>
       {/* tab choosing done and undone  */}
 
       {/* content todo list  */}
-      {btnTab === "done" ? <ListTodo list={detail ? DoneList : ""} /> : ""}
-      {btnTab === "undone" ? <ListTodo list={detail ? UndoneList : ""} /> : ""}
+      {btnTab === "done" ? <ListTodo list={DoneList} /> : ""}
+      {btnTab === "undone" ? <ListTodo list={UndoneList} /> : ""}
       {/* content todo list  */}
     </div>
   );
