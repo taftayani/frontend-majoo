@@ -1,8 +1,9 @@
 import React from "react";
-const Label = ({ labelText, classText }) => {
+const Label = ({ children, classText }) => {
   return (
+    //   this component for label need
     <div>
-      <label className={classText}>{labelText}</label>
+      <label className={classText}>{children}</label>
     </div>
   );
 };

@@ -12,18 +12,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-/* Header landing page  */
-.Header{
-  font-size: 24px;
-  font-weight: 700;
-  color: #525252;
-}
-.Paragraph{
-  font-size: 14px;
-  font-weight: 400;
-  color: #888585;
-}
 /* Divider for diffrent between title page and body */
 .divider{
   width: 90%;
@@ -34,3 +22,80 @@ code {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+/* container, and module css */
+.flex-module{
+  display: flex;
+}
+.content-center{
+  justify-content: center;
+  margin-top: 30px;
+}
+.mr-10px{
+  margin-right: 10px;
+}
+.mt-50px{
+  margin-top: 50px;
+}
+.w-300px{
+  width: 300px;
+}
+/* container, and module css */
+
+/* component styling css element  */
+  /* button css  */
+.button-tab{
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border:1px solid #D9D6D6;
+  color: #989A95;
+  cursor: pointer;
+}
+.button-tab-active{
+  background-color: #87BB2C;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border:none;
+  color: white;
+  cursor: pointer;
+}
+.detail-btn{
+  background-color: white;
+  color: #95C83D;
+  font-weight: 700;
+  font-size: 14px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+}
+  /* button css  */
+  /* Header, and text landing page  */
+.Header-page{
+  font-size: 24px;
+  font-weight: 700;
+  color: #525252;
+}
+.Paragraph-page{
+  font-size: 14px;
+  font-weight: 400;
+  color: #888585;
+}
+.text-left{
+  text-align: left;
+}
+.img-list{
+  margin-top: 20px;
+  margin-right: 30px;
+}
+.header-list{
+  font-size: 16px;
+  color: #999595;
+  font-weight: 500;
+}
+.description-list{
+  font-size: 14px;
+  color: #C1C1C1;
+  font-weight: normal;
+}
+  /* Header, and text landing page  */
+/* component styling css element  */
