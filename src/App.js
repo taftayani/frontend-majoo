@@ -1,25 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
+import Label from "./component/label";
 
 function App({ tes }) {
   return (
     <div className="App">
       {console.log(process.env)}
-
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Label classText={"Header"} labelText={"My Task"} />
+      <div className="divider" />
+      <Label
+        classText={"Paragraph"}
+        labelText={
+          "Hey there, please check your task before you guys doing other"
+        }
+      />
     </div>
   );
 }

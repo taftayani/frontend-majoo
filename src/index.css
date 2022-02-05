@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 30px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Header landing page  */
+.Header{
+  font-size: 24px;
+  font-weight: 700;
+  color: #525252;
+}
+.Paragraph{
+  font-size: 14px;
+  font-weight: 400;
+  color: #888585;
+}
+/* Divider for diffrent between title page and body */
+.divider{
+  width: 90%;
+  height: 1px;
+  background-color: #725656;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
